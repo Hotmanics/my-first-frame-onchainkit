@@ -1,36 +1,201 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# A Frame in 100 lines (or less)
 
-## Getting Started
+Farcaster Frames in less than 100 lines, and ready to be deployed to Vercel.
 
-First, run the development server:
+To test a Frame, use: https://warpcast.com/~/developers/frames.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+And let us know what you build by either mentioning @zizzamia on [Warpcast](https://warpcast.com/zizzamia) or [X](https://twitter.com/Zizzamia).
+
+<br />
+
+Have fun! ⛵️
+
+<br />
+
+## App Routing files
+
+- app/
+  - [config.ts](https://github.com/Zizzamia/a-frame-in-100-lines?tab=readme-ov-file#appconfigts)
+  - [layout.tsx](https://github.com/Zizzamia/a-frame-in-100-lines?tab=readme-ov-file#applayouttsx)
+  - [page.tsx](https://github.com/Zizzamia/a-frame-in-100-lines?tab=readme-ov-file#apppagetsx)
+- api/
+  - frame/
+    - [route.ts](https://github.com/Zizzamia/a-frame-in-100-lines?tab=readme-ov-file#appapiframeroutets)
+
+<br />
+
+### `app/page.tsx`
+
+```tsx
+import { getFrameMetadata } from '@coinbase/onchainkit/frame';
+import type { Metadata } from 'next';
+import { NEXT_PUBLIC_URL } from './config';
+
+const frameMetadata = getFrameMetadata({
+  buttons: [
+    {
+      label: 'Story time!',
+    },
+    {
+      action: 'link',
+      label: 'Link to Google',
+      target: 'https://www.google.com',
+    },
+    {
+      label: 'Redirect to pictures',
+      action: 'post_redirect',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/park-3.png`,
+    aspectRatio: '1:1',
+  },
+  input: {
+    text: 'Tell me a boat story',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+});
+
+export const metadata: Metadata = {
+  title: 'zizzamia.xyz',
+  description: 'LFG',
+  openGraph: {
+    title: 'zizzamia.xyz',
+    description: 'LFG',
+    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+  },
+  other: {
+    ...frameMetadata,
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <h1>zizzamia.xyz</h1>
+    </>
+  );
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### `app/layout.tsx`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```tsx
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+};
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+```
 
-## Learn More
+### `app/config.ts`
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+export const NEXT_PUBLIC_URL = 'https://zizzamia.xyz';
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `app/api/frame/route.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```ts
+import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
+import { NextRequest, NextResponse } from 'next/server';
+import { NEXT_PUBLIC_URL } from '../../config';
 
-## Deploy on Vercel
+async function getResponse(req: NextRequest): Promise<NextResponse> {
+  let accountAddress: string | undefined = '';
+  let text: string | undefined = '';
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  const body: FrameRequest = await req.json();
+  const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  if (isValid) {
+    accountAddress = message.interactor.verified_accounts[0];
+  }
+
+  if (message?.input) {
+    text = message.input;
+  }
+
+  if (message?.button === 3) {
+    return NextResponse.redirect(
+      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
+      { status: 302 },
+    );
+  }
+
+  return new NextResponse(
+    getFrameHtmlResponse({
+      buttons: [
+        {
+          label: `🌲 ${text} 🌲`,
+        },
+      ],
+      image: {
+        src: `${NEXT_PUBLIC_URL}/park-1.png`,
+      },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+    }),
+  );
+}
+
+export async function POST(req: NextRequest): Promise<Response> {
+  return getResponse(req);
+}
+
+export const dynamic = 'force-dynamic';
+```
+
+<br />
+
+## Resources
+
+- [Official Farcaster Frames documentation](https://docs.farcaster.xyz/learn/what-is-farcaster/frames)
+- [Official Farcaster Frame specification](https://docs.farcaster.xyz/reference/frames/spec)
+- [OnchainKit documentation](https://github.com/coinbase/onchainkit)
+
+<br />
+
+## The Team and Our Community ☁️ 🌁 ☁️
+
+A Farcaster Frame in 100 Lines is all about community. If you have any questions, feel free to reach out to the core maintainers on Twitter or through Farcaster.
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <a href="https://twitter.com/Zizzamia">
+          <img width="80" height="80" src="https://github.com/zizzamia.png?s=100">
+        </a>
+        <br />
+        <a href="https://twitter.com/Zizzamia">Leonardo Zizzamia</a>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://warpcast.com/cnasc">
+          <img width="80" height="80" src="https://github.com/cnasc.png?s=100">
+        </a>
+        <br />
+        <a href="https://warpcast.com/cnasc">Chris Nascone</a>
+      </td>
+      <td align="center" valign="top">
+        <a href="https://twitter.com/0xr0b_eth">
+          <img width="80" height="80" src="https://github.com/robpolak.png?s=100">
+        </a>
+        <br />
+        <a href="https://twitter.com/0xr0b_eth">Rob Polak</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
