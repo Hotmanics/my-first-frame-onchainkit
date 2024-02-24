@@ -6,7 +6,7 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Begin',
+      label: 'Start',
     },
     // {
     //   action: 'link',
