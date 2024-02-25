@@ -12,6 +12,7 @@ export async function GET(request: Request) {
     const nftDescription = searchParams.get('nftDescription');
     const nftImage = searchParams.get('nftImage');
 
+    
   return new ImageResponse(
     (
     <div style={{
@@ -25,16 +26,19 @@ export async function GET(request: Request) {
             display: 'flex',
             flexDirection: 'column'
             }}>
-                <div style={{fontSize: 24}}>
-        {nftName}
-        </div>
         
-        
-        <img src={nftImage!} width={128} height={128}/>            
+        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'grey'}}>
+            <div style={{fontSize: 18}}>
+            {nftName}
+            </div>
+            
+            <img src={nftImage!} width={106} height={106}/>            
 
-        <div style={{fontSize: 12}}>
-        {nftDescription}
+            <div style={{fontSize: 11}}>
+            {nftDescription}
+            </div>
         </div>
+
     </div>
     ),
     {
