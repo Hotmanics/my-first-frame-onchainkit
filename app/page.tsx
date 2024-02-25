@@ -5,11 +5,8 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Start',
+      label: 'Full Sponsorship Display',
     },
-    {
-      label: 'End'
-    }
   ],
   image: {
     src: `${NEXT_PUBLIC_URL}/bbg.png`,

@@ -8,10 +8,10 @@ import { createPublicClient, http } from 'viem';
 const providerURL = "https://base-sepolia.g.alchemy.com/v2/sDRzGJOS6oVi8Yj00eB4gYIKmRc6kVI-";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  const body: FrameRequest = await req.json();
-  const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
+  // const body: FrameRequest = await req.json();
+  // const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
 
-  if (message?.button === 1) {
+  // if (message?.button === 1) {
     const publicClient = createPublicClient({
       chain: baseSepolia,
       transport: http(providerURL as string),
@@ -66,22 +66,22 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
       }),
     );
-  }
-  else {
-    return new NextResponse(
-      getFrameHtmlResponse({
-        buttons: [
-          {
-            label: "I'm hit!",
-          }
-        ],
-        image: {
-          src: `${NEXT_PUBLIC_URL}/api/og2`
-        },
-        postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-      }),
-    );
-  }
+  // }
+  // else {
+  //   return new NextResponse(
+  //     getFrameHtmlResponse({
+  //       buttons: [
+  //         {
+  //           label: "I'm hit!",
+  //         }
+  //       ],
+  //       image: {
+  //         src: `${NEXT_PUBLIC_URL}/api/og2`
+  //       },
+  //       postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  //     }),
+  //   );
+  // }
 
 
   

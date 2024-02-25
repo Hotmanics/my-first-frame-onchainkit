@@ -90,8 +90,6 @@ export async function GET(request: Request) {
         
         <p style={{textAlign: 'center', justifyContent: 'center',
             alignContent: 'center', fontSize: 32}}>*Actual NFTs fetched from Base Sepolia!</p>
-
-
     </div>
     ),
     {
