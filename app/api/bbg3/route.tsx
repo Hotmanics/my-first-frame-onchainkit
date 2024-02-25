@@ -7,25 +7,36 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
-     
           {
             action: 'link',
-            label: 'Testnet Site',
-            target: 'https://partnership-nfts-nextjs.vercel.app/',
+            label: 'ATX DAO Website',
+            target: 'https://atxdao.com',
           },
           {
             action: 'link',
-            label: 'Github',
-            target: 'https://github.com/ATXDAO/partnership-nfts',
+            label: 'ATX DAO Members Portal',
+            target: 'https://members.atxdao.com',
           },
           {
-            label: "Continue",
+            action: 'link',
+            label: 'ATX DAO Warpcast Channel',
+            target: 'https://warpcast.com/~/channel/atxdao',
           },
+          {
+            action: 'link',
+            label: 'ATX DAO Twitter',
+            target: 'https://twitter.com/ATXDAO',
+          },
+
+          
+
         ],
         image: {
-          src: `${NEXT_PUBLIC_URL}/screenshotOne.png`,
+          src: `${NEXT_PUBLIC_URL}/bbg3.png`,
+    aspectRatio: '1:1',
+
         },
-        postUrl: `${NEXT_PUBLIC_URL}/api/frame3`,
+        postUrl: `${NEXT_PUBLIC_URL}/api/bbg3`,
       }),
     );
 }

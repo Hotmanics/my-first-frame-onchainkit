@@ -7,25 +7,16 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
-     
-          {
-            action: 'link',
-            label: 'Testnet Site',
-            target: 'https://partnership-nfts-nextjs.vercel.app/',
-          },
-          {
-            action: 'link',
-            label: 'Github',
-            target: 'https://github.com/ATXDAO/partnership-nfts',
-          },
           {
             label: "Continue",
           },
         ],
         image: {
-          src: `${NEXT_PUBLIC_URL}/screenshotOne.png`,
+          src: `${NEXT_PUBLIC_URL}/bbg2.png`,
+    aspectRatio: '1:1',
+
         },
-        postUrl: `${NEXT_PUBLIC_URL}/api/frame3`,
+        postUrl: `${NEXT_PUBLIC_URL}/api/bbg3`,
       }),
     );
 }

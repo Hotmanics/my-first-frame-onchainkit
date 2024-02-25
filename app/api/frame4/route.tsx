@@ -6,14 +6,25 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
+  
+          {
+            action: 'link',
+            label: 'ATX DAO Website',
+            target: 'https://members.atxdao.com',
+          },
+          {
+            action: 'link',
+            label: 'Github',
+            target: 'https://github.com/ATXDAO/nouns-monorepo',
+          },
           {
             label: "Continue"
-          }
+          },
         ],
         image: {
           src: `${NEXT_PUBLIC_URL}/screenshotThree.png`,
         },
-        postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+        postUrl: `${NEXT_PUBLIC_URL}/api/bbg2`,
       }),
     );
 }

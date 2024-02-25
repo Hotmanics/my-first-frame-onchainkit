@@ -1,52 +1,3 @@
-// import { getFrameMetadata } from '@coinbase/onchainkit/frame';
-// import type { Metadata } from 'next';
-// import { NEXT_PUBLIC_URL } from './config';
-
-// const frameMetadata = getFrameMetadata({
-//   buttons: [
-//     {
-//       label: 'Why yes we do have a demo!',
-//     },
-//     {
-//       label: 'Single Sponsorship Display',
-//     },
-//     {
-//       action: 'link',
-//       label: 'Link to Google',
-//       target: 'https://www.google.com',
-//     },
-//     {
-//       label: 'Continue'
-//     }
-//   ],
-//   image: {
-//     src: `${NEXT_PUBLIC_URL}/bbg.png`,
-//     aspectRatio: '1:1',
-//   },
-//   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-// });
-
-// export const metadata: Metadata = {
-//   title: 'zizzamia.xyz',
-//   description: 'LFG',
-//   openGraph: {
-//     title: 'zizzamia.xyz',
-//     description: 'LFG',
-//     images: [`${NEXT_PUBLIC_URL}/bbg.png`],
-//   },
-//   other: {
-//     ...frameMetadata,
-//   },
-// };
-
-// export default function Page() {
-//   return (
-//     <>
-//       <h1>zizzamia.xyz</h1>
-//     </>
-//   );
-// }
-
 import { getFrameMetadata } from '@coinbase/onchainkit/frame';
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL } from './config';
@@ -54,26 +5,14 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Story time!',
-    },
-    {
-      action: 'link',
-      label: 'Link to Google',
-      target: 'https://www.google.com',
-    },
-    {
-      label: 'Redirect to pictures',
-      action: 'post_redirect',
+      label: 'What are you going on about?',
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
+    src: `${NEXT_PUBLIC_URL}/bbg.png`,
     aspectRatio: '1:1',
   },
-  input: {
-    text: 'Tell me a boat story',
-  },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/bbg1`,
 });
 
 export const metadata: Metadata = {
@@ -82,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'zizzamia.xyz',
     description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    images: [`${NEXT_PUBLIC_URL}/bbg.png`],
   },
   other: {
     ...frameMetadata,

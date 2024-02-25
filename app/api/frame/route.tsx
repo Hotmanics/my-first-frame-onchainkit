@@ -68,45 +68,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
   console.log(body);
 
-  // const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
-
-  // if (message?.button === 1) {
     return await renderAllTokens();
-
-    // return new NextResponse(
-    //   getFrameHtmlResponse({
-    //     buttons: [
-    //       {
-    //         label: "Continue"
-    //       }
-    //     ],
-    //     image: {
-    //       src: `${NEXT_PUBLIC_URL}/screenshotOne.png`,
-    //     },
-    //     postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-    //   }),
-    // );
-
-  // }
-  // else if (message?.button === 2) {
-
-  // }
-  // else {
-  //   return new NextResponse(
-  //     getFrameHtmlResponse({
-  //       buttons: [
-  //         {
-  //           label: "I'm hit!",
-  //         }
-  //       ],
-  //       image: {
-  //         src: `${NEXT_PUBLIC_URL}/api/og2`
-  //       },
-  //       postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-  //     }),
-  //   );
-  // }
-
 
   
 }

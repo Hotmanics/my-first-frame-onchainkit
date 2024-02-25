@@ -5,6 +5,8 @@ import { ImageResponse } from 'next/server';
  
 export const runtime = 'edge';
  
+let counter = 0;
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
 
@@ -23,7 +25,8 @@ export async function GET(request: Request) {
     const nftName3 = searchParams.get('nftName3');
     const nftDescription3 = searchParams.get('nftDescription3');
     const nftImage3 = searchParams.get('nftImage3');
-    
+    counter++;
+
   return new ImageResponse(
     (
     <div style={{
@@ -36,7 +39,7 @@ export async function GET(request: Request) {
             alignContent: 'center'
             }}>
         
-        <div style={{display:'flex', height: '70%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
+        <div style={{display:'flex', height: '65%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
 
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
             <div style={{fontSize: 28, margin: 5}}>
@@ -89,8 +92,16 @@ export async function GET(request: Request) {
         </div>
         
         <p style={{textAlign: 'center', justifyContent: 'center',
-            alignContent: 'center', fontSize: 32}}>*Actual NFTs fetched from Base Sepolia!</p>
+            alignContent: 'center', fontSize: 18, margin: 15}}>*Live NFT data fetched from Base Sepolia inserted into this frame!</p>
+
+<p style={{textAlign: 'center', justifyContent: 'center',
+            alignContent: 'center', fontSize: 18,  margin: 5}}>Imagine using this dynamic frame in every cast that you make!</p>
+
+<p style={{textAlign: 'center', justifyContent: 'center',
+            alignContent: 'center', fontSize: 18,  margin: 5}}>You are visitor: #{counter}</p>
     </div>
+
+    
     ),
     {
       width: 1200,
