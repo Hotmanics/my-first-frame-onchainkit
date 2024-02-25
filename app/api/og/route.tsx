@@ -36,53 +36,52 @@ export async function GET(request: Request) {
             alignContent: 'center'
             }}>
         
-        <div style={{display:'flex', height: '50%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
+        <div style={{display:'flex', height: '70%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
 
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
-            <div style={{fontSize: 18, margin: 5}}>
+            <div style={{fontSize: 28, margin: 5}}>
             {nftName0}
             </div>
             
-            <img src={nftImage0!} width={106} height={106} style={{margin: 5}}/>            
+            <img src={nftImage0!} width={180} height={180} style={{margin: 5}}/>            
 
-            <div style={{margin: 5, fontSize: 11}}>
+            <div style={{margin: 5, fontSize: 18}}>
             {nftDescription0}
             </div>
         </div>
 
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
-            <div style={{fontSize: 18, margin: 5}}>
+            <div style={{fontSize: 28, margin: 5}}>
             {nftName1}
             </div>
             
-            <img src={nftImage1!} width={106} height={106} style={{margin: 5}}/>            
+            <img src={nftImage1!} width={180} height={180} style={{margin: 5}}/>            
 
-            <div style={{margin: 5, fontSize: 11}}>
+            <div style={{margin: 5, fontSize: 18}}>
             {nftDescription1}
             </div>
         </div>
 
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
-            <div style={{fontSize: 18, margin: 5}}>
+            <div style={{fontSize: 28, margin: 5}}>
             {nftName2}
             </div>
             
-            <img src={nftImage2!} width={106} height={106} style={{margin: 5}}/>            
+            <img src={nftImage2!} width={180} height={180} style={{margin: 5}}/>            
 
-            <div style={{margin: 5, fontSize: 11}}>
+            <div style={{margin: 5, fontSize: 18}}>
             {nftDescription2}
             </div>
         </div>
 
-
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
-            <div style={{fontSize: 18, margin: 5}}>
+            <div style={{fontSize: 28, margin: 5}}>
             {nftName3}
             </div>
             
-            <img src={nftImage3!} width={106} height={106} style={{margin: 5}}/>            
+            <img src={nftImage3!} width={180} height={180} style={{margin: 5}}/>            
 
-            <div style={{margin: 5, fontSize: 11}}>
+            <div style={{margin: 5, fontSize: 18}}>
             {nftDescription3}
             </div>
         </div>
