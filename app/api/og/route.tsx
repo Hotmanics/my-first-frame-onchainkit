@@ -38,7 +38,7 @@ export async function GET(request: Request) {
         
         <div style={{display:'flex', height: '50%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
 
-        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'grey', width: '20%', height: '100%', margin: 5}}>
+        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
             <div style={{fontSize: 18, margin: 5}}>
             {nftName0}
             </div>
@@ -50,7 +50,7 @@ export async function GET(request: Request) {
             </div>
         </div>
 
-        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'grey', width: '20%', height: '100%', margin: 5}}>
+        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
             <div style={{fontSize: 18, margin: 5}}>
             {nftName1}
             </div>
@@ -62,7 +62,7 @@ export async function GET(request: Request) {
             </div>
         </div>
 
-        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'grey', width: '20%', height: '100%', margin: 5}}>
+        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
             <div style={{fontSize: 18, margin: 5}}>
             {nftName2}
             </div>
@@ -75,7 +75,7 @@ export async function GET(request: Request) {
         </div>
 
 
-        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: 'grey', width: '20%', height: '100%', margin: 5}}>
+        <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
             <div style={{fontSize: 18, margin: 5}}>
             {nftName3}
             </div>
