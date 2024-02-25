@@ -5,8 +5,6 @@ import { ImageResponse } from 'next/server';
  
 export const runtime = 'edge';
  
-let counter = 0;
-
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
 
@@ -96,9 +94,6 @@ export async function GET(request: Request) {
 
 <p style={{textAlign: 'center', justifyContent: 'center',
             alignContent: 'center', fontSize: 18,  margin: 5}}>Imagine using this dynamic frame in every cast that you make!</p>
-
-<p style={{textAlign: 'center', justifyContent: 'center',
-            alignContent: 'center', fontSize: 18,  margin: 5}}>You are visitor: #{counter}</p>
     </div>
 
     
