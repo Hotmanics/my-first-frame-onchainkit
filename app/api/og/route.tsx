@@ -23,7 +23,6 @@ export async function GET(request: Request) {
     const nftName3 = searchParams.get('nftName3');
     const nftDescription3 = searchParams.get('nftDescription3');
     const nftImage3 = searchParams.get('nftImage3');
-    counter++;
 
   return new ImageResponse(
     (
