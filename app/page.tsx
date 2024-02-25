@@ -1,3 +1,52 @@
+// import { getFrameMetadata } from '@coinbase/onchainkit/frame';
+// import type { Metadata } from 'next';
+// import { NEXT_PUBLIC_URL } from './config';
+
+// const frameMetadata = getFrameMetadata({
+//   buttons: [
+//     {
+//       label: 'Why yes we do have a demo!',
+//     },
+//     {
+//       label: 'Single Sponsorship Display',
+//     },
+//     {
+//       action: 'link',
+//       label: 'Link to Google',
+//       target: 'https://www.google.com',
+//     },
+//     {
+//       label: 'Continue'
+//     }
+//   ],
+//   image: {
+//     src: `${NEXT_PUBLIC_URL}/bbg.png`,
+//     aspectRatio: '1:1',
+//   },
+//   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+// });
+
+// export const metadata: Metadata = {
+//   title: 'zizzamia.xyz',
+//   description: 'LFG',
+//   openGraph: {
+//     title: 'zizzamia.xyz',
+//     description: 'LFG',
+//     images: [`${NEXT_PUBLIC_URL}/bbg.png`],
+//   },
+//   other: {
+//     ...frameMetadata,
+//   },
+// };
+
+// export default function Page() {
+//   return (
+//     <>
+//       <h1>zizzamia.xyz</h1>
+//     </>
+//   );
+// }
+
 import { getFrameMetadata } from '@coinbase/onchainkit/frame';
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL } from './config';
@@ -5,18 +54,24 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Why yes we do have a demo!',
+      label: 'Story time!',
     },
     {
-      label: 'Single Sponsorship Display',
+      action: 'link',
+      label: 'Link to Google',
+      target: 'https://www.google.com',
     },
     {
-      label: 'Continue'
-    }
+      label: 'Redirect to pictures',
+      action: 'post_redirect',
+    },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/bbg.png`,
+    src: `${NEXT_PUBLIC_URL}/park-3.png`,
     aspectRatio: '1:1',
+  },
+  input: {
+    text: 'Tell me a boat story',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
 });
@@ -27,7 +82,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'zizzamia.xyz',
     description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/bbg.png`],
+    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
   },
   other: {
     ...frameMetadata,

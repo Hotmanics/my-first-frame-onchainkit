@@ -11,6 +11,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             label: "Continue",
           },
           {
+            action: 'link',
+            label: 'Link to Google',
+            target: 'https://www.google.com',
+          },
+          {
             label: "View Testnet Site",
           }
         ],
