@@ -7,6 +7,9 @@ const frameMetadata = getFrameMetadata({
     {
       label: 'Start',
     },
+    {
+      label: 'End'
+    }
   ],
   image: {
     src: `${NEXT_PUBLIC_URL}/park-3.png`,

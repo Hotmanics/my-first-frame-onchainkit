@@ -8,7 +8,7 @@ import { createPublicClient, http } from 'viem';
 const providerURL = "https://base-sepolia.g.alchemy.com/v2/sDRzGJOS6oVi8Yj00eB4gYIKmRc6kVI-";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  
+
   const publicClient = createPublicClient({
     chain: baseSepolia,
     transport: http(providerURL as string),
