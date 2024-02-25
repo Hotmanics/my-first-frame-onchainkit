@@ -36,7 +36,7 @@ export async function GET(request: Request) {
             alignContent: 'center'
             }}>
         
-        <div style={{display:'flex', height: '65%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
+        <div style={{display:'flex', height: '62.5%', width: '100%', alignContent: 'center', justifyContent: 'center'}}>
 
         <div style={{display:'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: '#d1d1d1', width: '20%', height: '100%', margin: 5}}>
             <div style={{fontSize: 28, margin: 5}}>
@@ -93,6 +93,9 @@ export async function GET(request: Request) {
 
 <p style={{textAlign: 'center', justifyContent: 'center',
             alignContent: 'center', fontSize: 18,  margin: 5}}>Imagine using this dynamic frame in every cast that you make!</p>
+
+<p style={{textAlign: 'center', justifyContent: 'center',
+            alignContent: 'center', fontSize: 18,  margin: 5}}>Reload this frame to see the NFTs sorted differently!</p>
     </div>
 
     

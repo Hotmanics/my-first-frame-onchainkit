@@ -13,7 +13,7 @@ async function renderAllTokens() {
     transport: http(providerURL as string),
   });
   
-  const jsons = [];
+  let jsons = [];
 
   for (let i = 0; i < 4; i++) {
     let tokenURI = '';
@@ -37,6 +37,17 @@ async function renderAllTokens() {
     
     jsons.push(json);
   }
+
+  const shuffle = (array: any[]) => { 
+    for (let i = array.length - 1; i > 0; i--) { 
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+    return array; 
+  }; 
+
+
+  jsons = shuffle(jsons);
 
   let paramaters = '';
   
