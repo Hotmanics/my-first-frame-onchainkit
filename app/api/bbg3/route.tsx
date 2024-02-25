@@ -9,22 +9,22 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         buttons: [
           {
             action: 'link',
-            label: 'ATX DAO Website',
+            label: 'Website',
             target: 'https://atxdao.com',
           },
           {
             action: 'link',
-            label: 'ATX DAO Members Portal',
+            label: 'Members Portal',
             target: 'https://members.atxdao.com',
           },
           {
             action: 'link',
-            label: 'ATX DAO Warpcast Channel',
+            label: 'Warpcast',
             target: 'https://warpcast.com/~/channel/atxdao',
           },
           {
             action: 'link',
-            label: 'ATX DAO Twitter',
+            label: 'Twitter',
             target: 'https://twitter.com/ATXDAO',
           },
 

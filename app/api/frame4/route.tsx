@@ -9,7 +9,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   
           {
             action: 'link',
-            label: 'ATX DAO Website',
+            label: 'Website',
             target: 'https://members.atxdao.com',
           },
           {
