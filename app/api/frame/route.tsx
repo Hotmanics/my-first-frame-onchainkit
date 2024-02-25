@@ -14,29 +14,40 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     transport: http(providerURL as string),
   });
   
-  let tokenMetadata = '';
+  let tokenURI = '';
   try {
-    tokenMetadata = (await publicClient.readContract({
+    tokenURI = (await publicClient.readContract({
       address: address as `0x${string}`,
       abi,
       functionName: 'tokenURI',
-      args: [0],
+      args: [BigInt(0)],
     })) as string;
   } catch (err) {
     console.error(err);
   }
+  console.log(tokenURI)
   
-  console.log({ tokenMetadata });
+  tokenURI = tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/");
 
+  let result = await fetch(tokenURI);
+  let json = await result.json();
+
+  console.log(json);
+
+  // const tokenMetadataJson = JSON.parse(tokenMetadata);
+  // console.log(tokenMetadataJson);
+
+  // return new NextResponse(html);
+  
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          label: tokenMetadata,
-        },
+          label: tokenURI,
+        }
       ],
       image: {
-        src: `${NEXT_PUBLIC_URL}/park-1.png`,
+        src: `${NEXT_PUBLIC_URL}/api/og?nftName=${encodeURI(json.name)}&nftDescription=${ encodeURI(json.description)}&nftImage=${json.image.replace("ipfs://", "https://ipfs.io/ipfs/")}` //`${json.image.replace("ipfs://", "https://ipfs.io/ipfs/")}`,
       },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
     }),
