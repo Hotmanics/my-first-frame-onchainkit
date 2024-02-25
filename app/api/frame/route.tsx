@@ -29,12 +29,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       console.error(err);
     }
 
-    tokenURI = tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/");
+    tokenURI = tokenURI.replace("ipfs://", "https://nftstorage.link/ipfs/");
   
     let result = await fetch(tokenURI);
     let json = await result.json();
 
-    json.image = json.image.replace("ipfs://", "https://ipfs.io/ipfs/");
+    json.image = json.image.replace("ipfs://", "https://nftstorage.link/ipfs/");
     
     jsons.push(json);
   }
@@ -44,8 +44,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   for (let i = 0; i < jsons.length; i++) {
     paramaters += `nftName${i}=${encodeURI(jsons[i].name)}&`;
     paramaters += `nftDescription${i}=${encodeURI(jsons[i].description)}&`;
-    paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}&`;
-  }
+    if (i === jsons.length - 1)
+    paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}`;
+  else
+  paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}&`;
+}
 
   return new NextResponse(
     getFrameHtmlResponse({
