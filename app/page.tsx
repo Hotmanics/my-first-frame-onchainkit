@@ -5,8 +5,14 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Full Sponsorship Display',
+      label: 'Why yes we do have a demo!',
     },
+    {
+      label: 'Single Sponsorship Display',
+    },
+    {
+      label: 'Continue'
+    }
   ],
   image: {
     src: `${NEXT_PUBLIC_URL}/bbg.png`,
