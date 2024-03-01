@@ -5,14 +5,14 @@ import { address, abi } from '../../../test';
 import { baseSepolia } from 'viem/chains';
 import { createPublicClient, http } from 'viem';
 
-const providerURL = "https://base-sepolia.g.alchemy.com/v2/sDRzGJOS6oVi8Yj00eB4gYIKmRc6kVI-";
+const providerURL = 'https://base-sepolia.g.alchemy.com/v2/sDRzGJOS6oVi8Yj00eB4gYIKmRc6kVI-';
 
 async function renderAllTokens() {
   const publicClient = createPublicClient({
     chain: baseSepolia,
     transport: http(providerURL as string),
   });
-  
+
   let jsons = [];
 
   for (let i = 0; i < 4; i++) {
@@ -28,47 +28,44 @@ async function renderAllTokens() {
       console.error(err);
     }
 
-    tokenURI = tokenURI.replace("ipfs://", "https://nftstorage.link/ipfs/");
-  
+    tokenURI = tokenURI.replace('ipfs://', 'https://nftstorage.link/ipfs/');
+
     let result = await fetch(tokenURI);
     let json = await result.json();
 
-    json.image = json.image.replace("ipfs://", "https://nftstorage.link/ipfs/");
-    
+    json.image = json.image.replace('ipfs://', 'https://nftstorage.link/ipfs/');
+
     jsons.push(json);
   }
 
-  const shuffle = (array: any[]) => { 
-    for (let i = array.length - 1; i > 0; i--) { 
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [array[i], array[j]] = [array[j], array[i]]; 
-    } 
-    return array; 
-  }; 
-
+  const shuffle = (array: any[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   jsons = shuffle(jsons);
 
   let paramaters = '';
-  
+
   for (let i = 0; i < jsons.length; i++) {
     paramaters += `nftName${i}=${encodeURI(jsons[i].name)}&`;
     paramaters += `nftDescription${i}=${encodeURI(jsons[i].description)}&`;
-    if (i === jsons.length - 1)
-    paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}`;
-  else
-  paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}&`;
-}
+    if (i === jsons.length - 1) paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}`;
+    else paramaters += `nftImage${i}=${encodeURI(jsons[i].image)}&`;
+  }
 
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          label: "Continue",
-        }
+          label: 'Continue',
+        },
       ],
       image: {
-        src: `${NEXT_PUBLIC_URL}/api/og?${paramaters}`
+        src: `${NEXT_PUBLIC_URL}/api/og?${paramaters}`,
       },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame2`,
     }),
@@ -79,9 +76,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
   console.log(body);
 
-    return await renderAllTokens();
-
-  
+  return await renderAllTokens();
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
