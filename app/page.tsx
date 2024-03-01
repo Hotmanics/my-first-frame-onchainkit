@@ -10,18 +10,50 @@ import { createPublicClient, http } from 'viem';
 
 const providerURL = 'https://base-sepolia.g.alchemy.com/v2/sDRzGJOS6oVi8Yj00eB4gYIKmRc6kVI-';
 
-const frameMetadata = getFrameMetadata({
-  buttons: [
-    {
-      label: 'What are you going on about?',
-    },
-  ],
-  image: {
-    src: `${NEXT_PUBLIC_URL}/bbg.png`,
-    aspectRatio: '1:1',
-  },
-  postUrl: `${NEXT_PUBLIC_URL}/api/bbg1`,
-});
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+/////// Merge Dynamic NFT Loading and CTA
+
+// const frameMetadata = getFrameMetadata({
+//   buttons: [
+//     {
+//       label: 'What are you going on about?',
+//     },
+//   ],
+//   image: {
+//     src: `${NEXT_PUBLIC_URL}/bbg.png`,
+//     aspectRatio: '1:1',
+//   },
+//   postUrl: `${NEXT_PUBLIC_URL}/api/bbg1`,
+// });
+
+// export const metadata: Metadata = {
+//   title: 'zizzamia.xyz',
+//   description: 'LFG',
+//   openGraph: {
+//     title: 'zizzamia.xyz',
+//     description: 'LFG',
+//     images: [`${NEXT_PUBLIC_URL}/bbg.png`],
+//   },
+//   other: {
+//     ...frameMetadata,
+//   },
+// };
 
 async function renderAllTokens() {
   const publicClient = createPublicClient({
@@ -76,27 +108,27 @@ async function renderAllTokens() {
   return `${NEXT_PUBLIC_URL}/api/og?${paramaters}`;
 }
 
-// export const metadata: Metadata = {
-//   title: 'zizzamia.xyz',
-//   description: 'LFG',
-//   openGraph: {
-//     title: 'zizzamia.xyz',
-//     description: 'LFG',
-//     images: [`${NEXT_PUBLIC_URL}/bbg.png`],
-//   },
-//   other: {
-//     ...frameMetadata,
-//   },
-// };
-
 export async function generateMetadata() {
+  let res = getFrameMetadata({
+    buttons: [
+      {
+        label: 'What are you going on about?',
+      },
+    ],
+    image: {
+      src: await renderAllTokens(),
+    },
+    postUrl: `${NEXT_PUBLIC_URL}/api/bbg1`,
+  });
+
   return {
     title: 'yes',
     description: 'lfg',
     openGraph: {
-      title: 'yes',
-      description: 'LFG',
       images: [await renderAllTokens()],
+    },
+    other: {
+      ...res,
     },
   };
 }
