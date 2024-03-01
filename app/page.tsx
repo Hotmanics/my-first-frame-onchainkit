@@ -117,6 +117,7 @@ export async function generateMetadata() {
     ],
     image: {
       src: await renderAllTokens(),
+      aspectRatio: '1:1',
     },
     postUrl: `${NEXT_PUBLIC_URL}/api/bbg1`,
   });
