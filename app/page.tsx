@@ -110,11 +110,11 @@ async function renderAllTokens() {
 
 export async function generateMetadata() {
   let res = getFrameMetadata({
-    buttons: [
-      {
-        label: 'What are you going on about?',
-      },
-    ],
+    // buttons: [
+    //   {
+    //     label: 'What are you going on about?',
+    //   },
+    // ],
     image: {
       src: await renderAllTokens(),
       aspectRatio: '1:1',
