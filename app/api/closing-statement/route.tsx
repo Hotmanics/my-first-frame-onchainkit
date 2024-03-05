@@ -13,7 +13,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
         {
           action: 'link',
-          label: 'Members Portal',
+          label: 'Mem Portal',
           target: 'https://members.atxdao.com',
         },
         {
