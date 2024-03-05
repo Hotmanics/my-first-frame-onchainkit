@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       buttons: [
         {
           action: 'link',
-          label: 'Repository',
+          label: 'Repo',
           target: 'https://github.com/Hotmanics/nft-partnership-frames',
         },
         {
