@@ -7,6 +7,8 @@ export const nftCardStyle: any = {
   width: '23%',
   height: '100%',
   margin: 5,
+  borderRadius: '25px',
+  padding: '5px',
 };
 
 export function generateNftCard(
@@ -18,9 +20,9 @@ export function generateNftCard(
     <div style={nftCardStyle}>
       <div style={{ fontSize: 22, margin: 0 }}>{nftName}</div>
 
-      <img src={nftImage!} width={128} height={128} style={{ margin: 5 }} />
+      <img src={nftImage!} width={128} height={128} style={{ margin: 5, borderRadius: '25px' }} />
 
-      <div style={{ margin: 5, fontSize: 20 }}>{nftDescription}</div>
+      <div style={{ margin: 5, fontSize: 19 }}>{nftDescription}</div>
     </div>
   );
 }
