@@ -110,14 +110,14 @@ async function renderAllTokens() {
 
 export async function generateMetadata() {
   let res = getFrameMetadata({
-    // buttons: [
-    //   {
-    //     label: 'What are you going on about?',
-    //   },
-    // ],
+    buttons: [
+      {
+        label: 'What are you going on about?',
+      },
+    ],
     image: {
       src: await renderAllTokens(),
-      aspectRatio: '1:1',
+      aspectRatio: '1.91:1',
     },
     postUrl: `${NEXT_PUBLIC_URL}/api/bbg1`,
   });
