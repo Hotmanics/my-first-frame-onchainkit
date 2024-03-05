@@ -77,6 +77,7 @@ export async function GET(request: Request) {
   };
   const bringingStyle: any = {
     fontSize: 28,
+    fontWeight: 'bold',
   };
 
   const bringingStyleFinal: any = {
@@ -86,6 +87,7 @@ export async function GET(request: Request) {
 
   const dynamicAdSpaceStyle: any = {
     fontSize: 28,
+    fontWeight: 'bold',
   };
 
   const dynamicAdSpaceStyleFinal: any = {

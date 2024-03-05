@@ -1,31 +1,27 @@
-import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
+import { getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
 import { NEXT_PUBLIC_URL } from '../../config';
+import { getNftMetadata } from '../../functions/getNftMetadata';
+import { shuffle, parameterizeNftMetadata } from '../../functions/utils';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  // if (message?.button === aNumber)
-
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          action: 'link',
-          label: 'Demo',
-          target: 'https://partnership-nfts-nextjs.vercel.app/',
-        },
-        {
-          action: 'link',
           label: 'Github',
-          target: 'https://github.com/ATXDAO/partnership-nfts',
+          action: 'link',
+          target: 'https://github.com/Hotmanics/my-first-frame-onchainkit',
         },
         {
           label: 'Continue',
         },
       ],
       image: {
-        src: `${NEXT_PUBLIC_URL}/screenshotTwo.png`,
+        src: `${NEXT_PUBLIC_URL}/api/dynamic-frame-demo`,
+        aspectRatio: '1.91:1',
       },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame4`,
+      postUrl: `${NEXT_PUBLIC_URL}/api/interface-demo-1`,
     }),
   );
 }
