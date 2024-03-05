@@ -3,33 +3,31 @@ import { NextRequest, NextResponse } from 'next/server';
 import { NEXT_PUBLIC_URL } from '../../config';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
+  // if (message?.button === aNumber)
 
-    // if (message?.button === aNumber)
-
-    return new NextResponse(
-      getFrameHtmlResponse({
-        buttons: [
-       
-          {
-            action: 'link',
-            label: 'Testnet Site',
-            target: 'https://partnership-nfts-nextjs.vercel.app/',
-          },
-          {
-            action: 'link',
-            label: 'Github',
-            target: 'https://github.com/ATXDAO/partnership-nfts',
-          },
-          {
-            label: "Continue"
-          },
-        ],
-        image: {
-          src: `${NEXT_PUBLIC_URL}/screenshotTwo.png`,
+  return new NextResponse(
+    getFrameHtmlResponse({
+      buttons: [
+        {
+          action: 'link',
+          label: 'Demo',
+          target: 'https://partnership-nfts-nextjs.vercel.app/',
         },
-        postUrl: `${NEXT_PUBLIC_URL}/api/frame4`,
-      }),
-    );
+        {
+          action: 'link',
+          label: 'Github',
+          target: 'https://github.com/ATXDAO/partnership-nfts',
+        },
+        {
+          label: 'Continue',
+        },
+      ],
+      image: {
+        src: `${NEXT_PUBLIC_URL}/screenshotTwo.png`,
+      },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame4`,
+    }),
+  );
 }
 
 export async function POST(req: NextRequest): Promise<Response> {

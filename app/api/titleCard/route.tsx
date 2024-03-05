@@ -29,15 +29,14 @@ export async function GET(request: Request) {
     margin: '0px 5px',
   };
 
-  const baseIconImg: any = <></>;
-  // (
-  //   <img
-  //     src="https://nftstorage.link/ipfs/bafkreiezuhtnp6hdndo5wldpz34nflst3lxnc3ymhi6ta6bwlhruiqzbu4"
-  //     width={32}
-  //     height={32}
-  //     style={{ margin: '0px 2px' }}
-  //   />
-  // );
+  const baseIconImg: any = (
+    <img
+      src="https://nftstorage.link/ipfs/bafkreiezuhtnp6hdndo5wldpz34nflst3lxnc3ymhi6ta6bwlhruiqzbu4"
+      width={32}
+      height={32}
+      style={{ margin: '0px 2px' }}
+    />
+  );
 
   const textStyle: any = {
     textAlign: 'center',
@@ -69,7 +68,7 @@ export async function GET(request: Request) {
   };
 
   const liveDataStyle: any = {
-    fontSize: 18,
+    fontSize: 24,
   };
 
   const liveDataStyleFinal: any = {
@@ -132,95 +131,43 @@ export async function GET(request: Request) {
         <p style={liveDataStyleFinal}>*Live NFT data fetched directly from Base Sepolia!</p>
 
         <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', margin: '0px -50px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', margin: '0px 20px' }}>
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
-
               <span style={atxDaoFinalStyle}>ATX DAO</span>
-
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
             </div>
 
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
-
               <span style={isSeekingAStyleFinal}>is seeking a</span>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
             </div>
 
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
-
               <span style={baseBuilderGrantFinalStyle}>Base Builder Grant</span>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', margin: '0px -40px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', margin: '0px 0px' }}>
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
               <p style={dynamicAdSpaceStyleFinal}>Dynamic NFT Ad Space</p>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
             </div>
 
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
               <p style={bringingStyleFinal}>Bringing Businesses Onchain</p>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
             </div>
 
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
               <p style={dynamicAdSpaceStyleFinal}>Revenue Generation</p>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
             </div>
 
             <div style={informationRowStyle}>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
               <p style={dynamicAdSpaceStyleFinal}>Open Sourced Implementation</p>
-              <div style={baseIconGroup}>
-                {baseIconImg}
-                {baseIconImg}
-              </div>
+              <div style={baseIconGroup}>{baseIconImg}</div>
             </div>
           </div>
         </div>
