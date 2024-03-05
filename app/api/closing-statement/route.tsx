@@ -8,13 +8,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       buttons: [
         {
           action: 'link',
-          label: 'Website',
-          target: 'https://atxdao.com',
+          label: 'Repository',
+          target: 'https://github.com/Hotmanics/nft-partnership-frames',
         },
         {
           action: 'link',
-          label: 'Mem Portal',
-          target: 'https://members.atxdao.com',
+          label: 'Website',
+          target: 'https://atxdao.com',
         },
         {
           action: 'link',
