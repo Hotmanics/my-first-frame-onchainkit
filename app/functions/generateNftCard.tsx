@@ -16,11 +16,11 @@ export function generateNftCard(
 ) {
   return (
     <div style={nftCardStyle}>
-      <div style={{ fontSize: 13, margin: 0 }}>{nftName}</div>
+      <div style={{ fontSize: 22, margin: 0 }}>{nftName}</div>
 
-      <img src={nftImage!} width={54} height={54} style={{ margin: 5 }} />
+      <img src={nftImage!} width={128} height={128} style={{ margin: 5 }} />
 
-      <div style={{ margin: 5, fontSize: 11 }}>{nftDescription}</div>
+      <div style={{ margin: 5, fontSize: 20 }}>{nftDescription}</div>
     </div>
   );
 }

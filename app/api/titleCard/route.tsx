@@ -69,7 +69,7 @@ export async function GET(request: Request) {
   };
 
   const liveDataStyle: any = {
-    fontSize: 12,
+    fontSize: 18,
   };
 
   const liveDataStyleFinal: any = {
