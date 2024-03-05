@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/server';
-import { NEXT_PUBLIC_URL } from '../../config';
-
+import { generateNftCard } from '../../functions/generateNftCard';
 // App router includes @vercel/og.
 // No need to install it.
 
@@ -30,41 +29,15 @@ export async function GET(request: Request) {
     margin: '0px 5px',
   };
 
-  const baseIconImg: any = (
-    <img
-      src="https://nftstorage.link/ipfs/bafkreiezuhtnp6hdndo5wldpz34nflst3lxnc3ymhi6ta6bwlhruiqzbu4"
-      width={32}
-      height={32}
-      style={{ margin: '0px 2px' }}
-    />
-  );
-
-  const nftCardStyle: any = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    background: '#d1d1d1',
-    width: '23%',
-    height: '100%',
-    margin: 5,
-  };
-
-  function generateNftCard(
-    nftName: string | null,
-    nftDescription: string | null,
-    nftImage: string | null,
-  ) {
-    return (
-      <div style={nftCardStyle}>
-        <div style={{ fontSize: 13, margin: 0 }}>{nftName}</div>
-
-        <img src={nftImage!} width={54} height={54} style={{ margin: 5 }} />
-
-        <div style={{ margin: 5, fontSize: 11 }}>{nftDescription}</div>
-      </div>
-    );
-  }
+  const baseIconImg: any = <></>;
+  // (
+  //   <img
+  //     src="https://nftstorage.link/ipfs/bafkreiezuhtnp6hdndo5wldpz34nflst3lxnc3ymhi6ta6bwlhruiqzbu4"
+  //     width={32}
+  //     height={32}
+  //     style={{ margin: '0px 2px' }}
+  //   />
+  // );
 
   const textStyle: any = {
     textAlign: 'center',
@@ -73,11 +46,11 @@ export async function GET(request: Request) {
   };
 
   const atxDaoStyle: any = {
-    fontSize: 38,
+    fontSize: 62,
   };
 
   const baseBuilderGrantStyle: any = {
-    fontSize: 42,
+    fontSize: 66,
     color: 'blue',
     fontWeight: 'bold',
   };
@@ -87,7 +60,7 @@ export async function GET(request: Request) {
   const atxDaoFinalStyle: any = { ...textStyle, ...atxDaoStyle };
 
   const isSeekingAStyle: any = {
-    fontSize: 20,
+    fontSize: 32,
   };
 
   const isSeekingAStyleFinal: any = {
@@ -104,7 +77,7 @@ export async function GET(request: Request) {
     ...liveDataStyle,
   };
   const bringingStyle: any = {
-    fontSize: 24,
+    fontSize: 28,
   };
 
   const bringingStyleFinal: any = {
@@ -112,27 +85,9 @@ export async function GET(request: Request) {
     ...bringingStyle,
   };
 
-  const onchain: any = {
-    fontSize: 24,
-    margin: '-5px 0px',
+  const dynamicAdSpaceStyle: any = {
+    fontSize: 28,
   };
-
-  const onchainFinal: any = {
-    ...textStyle,
-    ...onchain,
-  };
-
-  const onchain2: any = {
-    fontSize: 24,
-    margin: '0px 0px',
-  };
-
-  const onchainFinal2: any = {
-    ...textStyle,
-    ...onchain2,
-  };
-
-  const dynamicAdSpaceStyle: any = { fontSize: 24, margin: '0px 0px' };
 
   const dynamicAdSpaceStyleFinal: any = {
     ...textStyle,
@@ -144,13 +99,6 @@ export async function GET(request: Request) {
     alignItems: 'center',
     justifyContent: 'center',
     margin: '-10px 0px',
-  };
-
-  const informationRowStyle2: any = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: '10px 0px',
   };
 
   return new ImageResponse(
@@ -169,7 +117,7 @@ export async function GET(request: Request) {
         <div
           style={{
             display: 'flex',
-            height: '27.5%',
+            height: '60%',
             width: '100%',
             alignContent: 'center',
             justifyContent: 'center',
@@ -226,13 +174,12 @@ export async function GET(request: Request) {
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', margin: '-40px -40px' }}>
-            <div style={informationRowStyle2}>
+          <div style={{ display: 'flex', flexDirection: 'column', margin: '0px -40px' }}>
+            <div style={informationRowStyle}>
               <div style={baseIconGroup}>
                 {baseIconImg}
                 {baseIconImg}
               </div>
-
               <p style={dynamicAdSpaceStyleFinal}>Dynamic NFT Ad Space</p>
               <div style={baseIconGroup}>
                 {baseIconImg}
@@ -241,7 +188,15 @@ export async function GET(request: Request) {
             </div>
 
             <div style={informationRowStyle}>
-              <p style={onchainFinal2}>Bringing</p>
+              <div style={baseIconGroup}>
+                {baseIconImg}
+                {baseIconImg}
+              </div>
+              <p style={bringingStyleFinal}>Bringing Businesses Onchain</p>
+              <div style={baseIconGroup}>
+                {baseIconImg}
+                {baseIconImg}
+              </div>
             </div>
 
             <div style={informationRowStyle}>
@@ -249,23 +204,27 @@ export async function GET(request: Request) {
                 {baseIconImg}
                 {baseIconImg}
               </div>
-
-              <p style={bringingStyleFinal}>Local & Online Businesses</p>
+              <p style={dynamicAdSpaceStyleFinal}>Revenue Generation</p>
               <div style={baseIconGroup}>
                 {baseIconImg}
                 {baseIconImg}
               </div>
             </div>
+
             <div style={informationRowStyle}>
-              <p style={onchainFinal}>Onchain</p>
+              <div style={baseIconGroup}>
+                {baseIconImg}
+                {baseIconImg}
+              </div>
+              <p style={dynamicAdSpaceStyleFinal}>Open Sourced Implementation</p>
+              <div style={baseIconGroup}>
+                {baseIconImg}
+                {baseIconImg}
+              </div>
             </div>
           </div>
         </div>
       </div>
     ),
-    {
-      width: 720,
-      height: 720,
-    },
   );
 }
